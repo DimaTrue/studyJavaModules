@@ -12,6 +12,7 @@ public class LocatorModule extends ReactContextBaseJavaModule {
 
     private static ReactApplicationContext reactContext;
 
+
     public LocatorModule(ReactApplicationContext reactContext) {
         super(reactContext);
     }
@@ -22,12 +23,26 @@ public class LocatorModule extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    public void onTheStart() {
-        reactContext.startService(new Intent(reactContext, MyAndroidServiceTutorial.class));
+    public void onTheStart() {  
+        Intent intent = new Intent(getReactApplicationContext(), MyAndroidServiceTutorial.class);
+        getReactApplicationContext().startService(intent);
     }
 
     @ReactMethod
     public void onTheEnd() {
-        reactContext.stopService(new Intent(reactContext, MyAndroidServiceTutorial.class));
+        Intent intent = new Intent(getReactApplicationContext(), MyAndroidServiceTutorial.class);
+        getReactApplicationContext().stopService(intent);
     }
+//
+//    @ReactMethod
+//    public void onTheStart() {
+////        reactContext.startService(new Intent(reactContext, MyAndroidServiceTutorial.class));
+//    MyAndroidServiceTutorial service = new MyAndroidServiceTutorial();
+//    service.onStartCommand();
+//    }
+//
+//    @ReactMethod
+//    public void onTheEnd() {
+//        reactContext.stopService(new Intent(reactContext, MyAndroidServiceTutorial.class));
+//    }
 }

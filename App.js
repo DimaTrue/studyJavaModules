@@ -12,7 +12,8 @@ import LocatorModule from './LocatorModule';
 const App = () => {
   return (
     <View style={styles.container} onPress={() => LocatorModule.onTheStart()}>
-      {console.warn('Locator: ', LocatorModule.onTheStart)}
+      {console.warn('LocatorStart: ', LocatorModule.onTheStart)}
+      {console.warn('LocatorEnd: ', LocatorModule.onTheEnd)}
       <TouchableOpacity style={styles.btn}>
         <Text>Start Service</Text>
       </TouchableOpacity>

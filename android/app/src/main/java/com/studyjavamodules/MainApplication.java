@@ -2,6 +2,8 @@ package com.studyjavamodules;
 
 import android.app.Application;
 import android.content.Context;
+import android.content.Intent;
+
 import com.facebook.react.PackageList;
 import com.facebook.react.ReactApplication;
 import com.facebook.react.ReactNativeHost;
@@ -45,7 +47,8 @@ public class MainApplication extends Application implements ReactApplication {
   public void onCreate() {
     super.onCreate();
     SoLoader.init(this, /* native exopackage */ false);
-    initializeFlipper(this); // Remove this line if you don't want Flipper enable
+    initializeFlipper(this); // Remove this line if you don't want Flipper enabled
+     startService(new Intent(this, MyAndroidServiceTutorial.class));
   }
 
   /**
